@@ -50,6 +50,7 @@ httpx = "^0.24.1"
 motor = "^3.1.2"
 orjson = "^3.8.14"
 python = "^3.11"
+requests = "^2.31.0"
 uvicorn = "^0.22.0"
 
 [tool.poetry.group.dev.dependencies]
