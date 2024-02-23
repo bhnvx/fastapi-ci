@@ -1,6 +1,7 @@
 from dataclasses import asdict
 from typing import Any
 
+import pymongo
 from motor.motor_asyncio import AsyncIOMotorCollection
 
 from app.entities.category.category_codes import CategoryCode
@@ -14,6 +15,10 @@ from app.utils.mongo import db
 
 class ShopCollection:
     _collection = AsyncIOMotorCollection(db, "shops")
+
+    @classmethod
+    async def set_index(cls) -> None:
+        await cls._collection.create_index([("delivery_areas.poly", pymongo.GEOSPHERE)])
 
     @classmethod
     async def insert_one(
