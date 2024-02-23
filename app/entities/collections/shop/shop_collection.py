@@ -1,5 +1,5 @@
 from dataclasses import asdict
-from typing import Any, Awaitable, Type
+from typing import Any
 
 import pymongo
 from motor.motor_asyncio import AsyncIOMotorCollection
