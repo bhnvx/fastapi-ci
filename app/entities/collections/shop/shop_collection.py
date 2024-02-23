@@ -1,5 +1,6 @@
 from dataclasses import asdict
 from typing import Any
+
 import pymongo
 from motor.motor_asyncio import AsyncIOMotorCollection
 
@@ -13,7 +14,7 @@ from app.utils.mongo import db
 
 
 class ShopCollection:
-    _collection: Any = AsyncIOMotorCollection(db, "shops")
+    _collection: AsyncIOMotorCollection = AsyncIOMotorCollection(db, "shops")
 
     @classmethod
     async def set_index(cls) -> None:
