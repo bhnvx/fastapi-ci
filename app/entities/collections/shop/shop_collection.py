@@ -19,10 +19,7 @@ class ShopCollection:
     @classmethod
     async def set_index(cls) -> None:
         await cls._collection.create_index(
-            [
-                ("delivery_areas.poly", pymongo.GEOSPHERE),
-                ("category_codes", pymongo.ASCENDING)
-            ]
+            [("delivery_areas.poly", pymongo.GEOSPHERE), ("category_codes", pymongo.ASCENDING)]
         )
 
     @classmethod

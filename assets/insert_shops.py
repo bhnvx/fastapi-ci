@@ -5,7 +5,6 @@ import os
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorCollection
 from pymongo.errors import BulkWriteError
 
-
 DATABASE_NAME = os.environ.get("MONGO_DATABASE", "yorigin")
 
 client = AsyncIOMotorClient()
