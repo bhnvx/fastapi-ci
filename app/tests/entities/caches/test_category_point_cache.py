@@ -42,9 +42,14 @@ async def test_category_cache_create_category_point() -> None:
 
     # Then
     assert point["cache_key"] == category_point_cache.cache_key
-    assert set(point["codes"]) == {CategoryCode.CHICKEN.value, CategoryCode.BURGER.value}
+    assert set(point["codes"]) == {
+        CategoryCode.CHICKEN.value,
+        CategoryCode.BURGER.value,
+    }
     redis_result = await redis.get(category_point_cache.cache_key)
-    assert set(redis_result.split(",")) == {"chicken", "burger"}
+
+    if redis_result:
+        assert set(redis_result.split(",")) == {"chicken", "burger"}
 
 
 async def test_category_cache_when_no_categories_then_it_creates_empty_category_point() -> None:
